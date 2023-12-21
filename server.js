@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require("body-parser")
-const path = require('path');
 const PORT = 5000 || process.env.PORT;
 const cors = require('cors');
 require('dotenv').config();
@@ -19,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/api/users', require('./routes/users'));
+app.use('/api/course', require('./routes/courses'));
 
 app.use(errorHandler);
 

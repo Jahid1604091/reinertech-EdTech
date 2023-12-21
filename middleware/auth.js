@@ -4,14 +4,16 @@ const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require('./async');
 
 exports.protect = asyncHandler(async(req,res,next)=>{
+    console.log(req.headers.authorization)
     let token = null;
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
         token = req.headers.authorization.split(' ')[1];
     }
-    else if(req.cookies.token){
-        token = req.cookies.token
+    else{
+        return next(new ErrorResponse('Unauthorized user',401));
     }
-    if(!token){
+
+    if(!token || token === null){
         return next(new ErrorResponse('Unauthorized user',401));
     }
 
