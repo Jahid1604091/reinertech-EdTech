@@ -19,12 +19,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/api/users', require('./routes/users'));
-app.use('/api/products', require('./routes/products'));
-app.use('/api/orders', require('./routes/orders'));
-app.use('/api/upload', require('./routes/uploads'));
-app.use('/api/payment', require('./routes/ssl'));
-
-
 
 app.use(errorHandler);
 
