@@ -15,6 +15,7 @@ exports.createCourse = asyncHandler(async (req, res, next) => {
     if (course) {
         return res.status(201).json({
             success: true,
+            messgae:"The course has been added successfully",
             data: course,
         });
     }
@@ -31,6 +32,7 @@ exports.getCourses = asyncHandler(async (req, res, next) => {
     const courses = await Course.find({});
     return res.status(200).json({
         success: true,
+        messgae:"The course List",
         data: courses
     });
 });
@@ -69,6 +71,7 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
     const updatedCourse = await course.save();
     return res.status(200).json({
         success: true,
+        messgae:"The course has been updated successfully",
         data: updatedCourse
     });
 });
@@ -83,6 +86,6 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
     const course = await Course.findByIdAndRemove(req.params.id);
     return res.status(200).json({
         success: true,
-        data: course.name + ' is removed!'
+        messgae: `The course : ${ course.name } has been Deleted successfully`,
     });
 });
