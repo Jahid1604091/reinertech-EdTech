@@ -6,3 +6,4 @@
 1. npm i && npm run sever
 2. default admin_creditals -> admin@yahoo.com, password : 123456,
     default user_credentials -> john@yahoo.com, password : 123456
+3. Can use the PostMan Collection just by importing in your local machine
